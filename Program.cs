@@ -134,57 +134,29 @@ while (is_playing)
             Console.WriteLine($"Looking around the graveyard, {player_name} finds a code but unsure what for.");
             Console.WriteLine($"The code is: {fishing_hut_code}");
         }
-        else if (current_location == "FOREST")
+        else if (current_location == "FOREST" && has_graveyard_hut_key == false)
         {
-            if (has_graveyard_hut_key == false)
-            {
-                Console.WriteLine($"Looking around the forest, {player_name} finds a key for the graveyard hut.");
-                Console.WriteLine($"Key added to inventory.");
-                has_graveyard_hut_key = true;
-            }
-            else
-            {
-                Console.WriteLine($"{player_name} searched the forest and found nothing.");
-            }
+            Console.WriteLine($"Looking around the forest, {player_name} finds a key for the graveyard hut.");
+            Console.WriteLine($"Key added to inventory.");
+            has_graveyard_hut_key = true;
         }
-        else if (current_location == "GRAVEYARD HUT")
+        else if (current_location == "GRAVEYARD HUT" && has_forest_hut_key == false)
         {
-            if (has_forest_hut_key == false)
-            {
-                Console.WriteLine($"Looking around the graveyard hut, {player_name} finds a key for the forest hut.");
-                Console.WriteLine($"Key added to inventory.");
-                has_forest_hut_key = true;
-            }
-            else
-            {
-                Console.WriteLine($"{player_name} searched the graveyard hut and found nothing.");
-            }
+            Console.WriteLine($"Looking around the graveyard hut, {player_name} finds a key for the forest hut.");
+            Console.WriteLine($"Key added to inventory.");
+            has_forest_hut_key = true;
         }
-        else if (current_location == "FOREST HUT")
+        else if (current_location == "FOREST HUT" && has_sword == false)
         {
-            if (has_sword == false)
-            {
                 Console.WriteLine($"Looking around the forest hut, {player_name} finds a sword to slay the creature at the gate.");
                 Console.WriteLine($"Sword added to inventory.");
                 has_sword = true;
-            }
-            else
-            {
-                Console.WriteLine($"{player_name} searched the forest hut and found nothing.");
-            }
         }
-        else if (current_location == "FISHING HUT")
+        else if (current_location == "FISHING HUT" && has_gate_key == false)
         {
-            if (has_gate_key == false)
-            {
-                Console.WriteLine($"Looking around the fishing hut, {player_name} finds a key to open the gate and escape!");
-                Console.WriteLine($"Key added to inventory.");
-                has_sword = true;
-            }
-            else
-            {
-                Console.WriteLine($"{player_name} searched the forest hut and found nothing.");
-            }
+            Console.WriteLine($"Looking around the fishing hut, {player_name} finds a key to open the gate and escape!");
+            Console.WriteLine($"Key added to inventory.");
+            has_sword = true;
         }
         else
         {
