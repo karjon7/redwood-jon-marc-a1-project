@@ -1,4 +1,4 @@
-﻿// (hurts to write code like this)
+// (hurts to write code like this)
 
 bool is_playing = true;
 
@@ -161,6 +161,30 @@ while (is_playing)
         else
         {
             Console.WriteLine($"{player_name} searched the area and found nothing.");
+        }
+    }
+    else if (player_input == "INVENTORY")
+    {
+        Console.WriteLine("You have:");
+
+        if (has_sword)
+        {
+            Console.WriteLine("Sword")
+        }
+        
+        if (has_forest_hut_key)
+        {
+            Console.WriteLine("Forest Hut Key")
+        }
+        
+        if (has_graveyard_hut_key)
+        {
+            Console.WriteLine("Graveyard Hut Key")
+        }
+        
+        if (has_gate_key)
+        {
+            Console.WriteLine("Gate Key")
         }
     }
     else
