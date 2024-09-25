@@ -1,6 +1,6 @@
 # Graveyard Escape - Text Adventure Game
 
-## Background
+### Background
 
 In **Graveyard Escape**, you awaken in a mysterious and eerie graveyard with no memory of how you got there. A grotesque creature guards the only exit—a gate at the edge of the cemetery. To escape, you must explore your surroundings, find useful items, unlock hidden areas, and eventually slay the creature blocking your way.
 
