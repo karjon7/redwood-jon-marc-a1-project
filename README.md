@@ -2,11 +2,11 @@
 
 ### Process Work
 
-Process work can be found [here](process work).
+Process work can be found [here](process_work).
 
 ### Background
 
-In **Graveyard Escape**, you awaken in a mysterious and eerie graveyard with no memory of how you got there. A grotesque creature guards the only exit—a gate at the edge of the cemetery. To escape, you must explore your surroundings, find useful items, unlock hidden areas, and eventually slay the creature blocking your way.
+In **Graveyard Escape**, you awaken in a mysterious and eerie graveyard with no memory of how you got there. A grotesque creature guards the only exit, a gate at the edge of the cemetery. To escape, you must explore your surroundings, find useful items, unlock hidden areas, and eventually slay the creature blocking your way.
 
 Can you solve the puzzles, gather the necessary tools, and escape before the cold and dread of the graveyard consume you?
 
