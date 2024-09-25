@@ -5,6 +5,8 @@ bool is_playing = true;
 string player_name;
 string current_location = "GRAVEYARD";
 int fishing_hut_code = 8103;
+bool fishing_hut_opened = false;
+bool creature_killed = false;
 
 //Inventory
 bool has_sword = false;
@@ -58,15 +60,46 @@ while (is_playing)
         }
         else if (player_input == "GRAVEYARD HUT")
         {
-            current_location = player_input;
+            if (has_graveyard_hut_key)
+            {
+                current_location = player_input;
 
-            Console.WriteLine("Heading to the graveyard hut.");
+                Console.WriteLine("Heading to the graveyard hut.");
+            }
+            else
+            {
+                Console.WriteLine("The graveyard hut is locked, I need to find the 'GRAVEYARD HUT KEY'.");
+            }
         }
         else if (player_input == "GATE")
         {
-            current_location = player_input;
-
-            Console.WriteLine("Heading to the gate.");
+            if (creature_killed == true && has_gate_key)
+            {
+                Console.WriteLine($"{player_name} uses the gate key and escapes! Great job!");
+                Console.WriteLine($"Thanks for playing!");
+                is_playing = false;
+            }
+            else if (creature_killed == false && has_sword && has_gate_key)
+            {
+                Console.WriteLine($"{player_name} uses the sword and slays the creature and escapes! Great job!");
+                Console.WriteLine($"Thanks for playing!");
+                creature_killed = true;
+                is_playing = false;
+            }
+            else if (creature_killed == false && has_sword && has_gate_key == false)
+            {
+                Console.WriteLine($"{player_name} uses the sword and slays the creature!");
+                Console.WriteLine($"But they still need to find the key to escape.");
+                creature_killed = true;
+            }
+            else if (creature_killed == true && has_gate_key == false) 
+            {
+                Console.WriteLine($"{player_name} can't go to the gate, it's still locked.");
+            }
+            else
+            {
+                Console.WriteLine($"{player_name} can't go to the gate, the creature is still there.");
+            }
         }
         else if (player_input == "FOREST")
         {
@@ -76,15 +109,47 @@ while (is_playing)
         }
         else if (player_input == "FOREST HUT")
         {
-            current_location = player_input;
+            if (has_forest_hut_key)
+            {
+                current_location = player_input;
 
-            Console.WriteLine("Heading to the forest hut.");
+                Console.WriteLine("Heading to the forest hut.");
+            }
+            else
+            {
+                Console.WriteLine("The forest hut is locked, I need to find the 'FOREST HUT KEY'.");
+            }
+            
         }
         else if (player_input == "FISHING HUT")
         {
-            current_location = player_input;
+            if (fishing_hut_opened == false)
+            {
+                Console.WriteLine("\nThe fishing hut requires a code to be entered to open it.");
+                Console.WriteLine("What is the code:");
+                
+                player_input = Console.ReadLine();
 
-            Console.WriteLine("Heading to the fishing hut.");
+                if (int.Parse(player_input) == fishing_hut_code)
+                {
+                    fishing_hut_opened = true;
+                    Console.WriteLine("The hut is now opened.");
+
+                    current_location = "FISHING HUT";
+
+                    Console.WriteLine("Heading to the fishing hut.");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect code.");
+                }
+            }
+            else
+            {
+                current_location = player_input;
+
+                Console.WriteLine("Heading to the fishing hut.");
+            }
         }
         else
         {
@@ -126,6 +191,10 @@ while (is_playing)
             Console.WriteLine($"The sorrounding fog is so dense {player_name} cannot see the other side.");
             Console.WriteLine($"Looking back through a window on the opposing side, {player_name} sees the 'FOREST' they can go back to.");
         }
+        else
+        {
+            Console.WriteLine("Not much to see here.");
+        }
     }
     else if (player_input == "SEARCH")
     {
@@ -148,15 +217,15 @@ while (is_playing)
         }
         else if (current_location == "FOREST HUT" && has_sword == false)
         {
-                Console.WriteLine($"Looking around the forest hut, {player_name} finds a sword to slay the creature at the gate.");
-                Console.WriteLine($"Sword added to inventory.");
-                has_sword = true;
+             Console.WriteLine($"Looking around the forest hut, {player_name} finds a sword to slay the creature at the gate.");
+             Console.WriteLine($"Sword added to inventory.");
+             has_sword = true;
         }
         else if (current_location == "FISHING HUT" && has_gate_key == false)
         {
             Console.WriteLine($"Looking around the fishing hut, {player_name} finds a key to open the gate and escape!");
             Console.WriteLine($"Key added to inventory.");
-            has_sword = true;
+            has_gate_key = true;
         }
         else
         {
@@ -169,22 +238,22 @@ while (is_playing)
 
         if (has_sword)
         {
-            Console.WriteLine("Sword")
+            Console.WriteLine("\tSword");
         }
         
         if (has_forest_hut_key)
         {
-            Console.WriteLine("Forest Hut Key")
+            Console.WriteLine("\tForest Hut Key");
         }
         
         if (has_graveyard_hut_key)
         {
-            Console.WriteLine("Graveyard Hut Key")
+            Console.WriteLine("\tGraveyard Hut Key");
         }
         
         if (has_gate_key)
         {
-            Console.WriteLine("Gate Key")
+            Console.WriteLine("\tGate Key");
         }
     }
     else
