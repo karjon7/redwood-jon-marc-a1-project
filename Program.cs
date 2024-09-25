@@ -1,4 +1,3 @@
-// (hurts to write code like this)
 
 bool is_playing = true;
 
@@ -26,6 +25,7 @@ Console.WriteLine($"{player_name} approaches the front gate but it is guarded by
 
 
 // Game loop
+// (hurts to write code like this)
 while (is_playing)
 {
     Console.WriteLine($"\nWhat does {player_name} do?");
@@ -39,6 +39,14 @@ while (is_playing)
         is_playing = false;
 
         Console.WriteLine("Quitting the Game, thanks for playing!");
+    }
+    else if (player_input == "HELP")
+    {
+        Console.WriteLine("Commands:");
+        Console.WriteLine("\tQuit: Quits the game");
+        Console.WriteLine("\tGo: Choose a location to go to");
+        Console.WriteLine("\tSearch: Search the area for items");
+        Console.WriteLine("\tInventory: Look at inventory");
     }
     else if (player_input == "GO")
     {
