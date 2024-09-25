@@ -98,15 +98,21 @@ while (is_playing)
             {
                 Console.WriteLine($"{player_name} uses the sword and slays the creature!");
                 Console.WriteLine($"But they still need to find the key to escape.");
+                Console.WriteLine($"{player_name} heads back to the graveyard.");
+                current_location = "GRAVEYARD";
                 creature_killed = true;
             }
             else if (creature_killed == true && has_gate_key == false) 
             {
                 Console.WriteLine($"{player_name} can't go to the gate, it's still locked.");
+                Console.WriteLine($"{player_name} heads back to the graveyard.");
+                current_location = "GRAVEYARD";
             }
             else
             {
                 Console.WriteLine($"{player_name} can't go to the gate, the creature is still there.");
+                Console.WriteLine($"{player_name} heads back to the graveyard.");
+                current_location = "GRAVEYARD";
             }
         }
         else if (player_input == "FOREST")
